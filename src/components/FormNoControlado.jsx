@@ -7,7 +7,19 @@ const FormNoControlado = () => {
         e.preventDefault();
         
         const datos = new FormData(formulario.current)
-        console.log(...datos.entries())
+
+        const objetoDatos = Object.fromEntries([...datos.entries()])
+        // console.log(objetoDatos);
+        const {todoDescripcion, todoEstado, todoName} = objetoDatos;
+        if(!todoDescripcion.trim()){
+            console.log("descripcion está vacio");
+            return
+        }
+        if(!todoName.trim()){
+            console.log("nombre está vacio");
+            return
+        }
+        console.log("datos ingresados");
     }
 
     return (
